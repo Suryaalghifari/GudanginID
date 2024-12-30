@@ -23,17 +23,31 @@
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-account text-muted ms-1" aria-hidden="true"></i>
                                 </a>
-                                <input type="username" name="username" class="form-control" placeholder="Username" required>
+                                <input type="username" name="username" class="form-control" placeholder="Username" autocomplete="off" required>
                             </div>
                             <div class="wrap-input100 validate-input input-group" id="Password-toggle">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                 </a>
-                                <input type= "password" name="password" class="form-control" type="password" placeholder="Password" required>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
-                                <span>Lupa Password? 
-                                        <a href="{{ route('password.request') }}" class="text-gray text-decoration-underline">Klik Disini</a>
-                                </span>
+                            
+                            <!-- Bungkus Google reCAPTCHA -->
+                           <div class="wrap-input100 validate-input input-group">
+                                <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-security text-muted" aria-hidden="true"></i>
+                                </a>
+                                <div class="form-control" style="border: none; padding: 0;">
+                                    {!! htmlFormSnippet() !!}
+                                </div>
+                            </div>
+                            @if($errors->has('g-recaptcha-response'))
+                                <small class="text-danger">{{ $errors->first('g-recaptcha-response') }}</small>
+                            @endif
+
+                            <span>Lupa Password? 
+                                    <a href="{{ route('password.request') }}" class="text-gray text-decoration-underline">Klik Disini</a>
+                            </span>
                             <div class="container-login100-form-btn">
                                 <button type="button" class="login100-form-btn btn btn-primary d-none" id="btnLoader" type="button" disabled="">
                                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
@@ -54,6 +68,8 @@
 
         </form>
     </div>
-    @endsection
+@endsection
 
 @section('scripts')
+<script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+@endsection

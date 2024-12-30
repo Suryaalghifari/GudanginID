@@ -59,13 +59,12 @@ class RegisterController extends Controller
 
             // Redirect ke halaman login dengan notifikasi sukses
             return redirect()->route('login')->with([
-                'status' => 'true',
+                'status' => 'success',
                 'message' => 'Akun Anda berhasil dibuat! Silakan cek email untuk verifikasi.',
             ]);
         } catch (\Exception $e) {
             // Tangani kesalahan
-            return redirect()->back()->with([
-                'status' => 'false',
+            return redirect()->back()->withErrors([
                 'message' => 'Terjadi kesalahan. Silakan coba lagi.',
             ])->withInput();
         }

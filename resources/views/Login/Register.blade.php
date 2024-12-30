@@ -23,7 +23,7 @@
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-account-box-mail text-muted" aria-hidden="true"></i>
                                 </a>
-                                <input type="name" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                                <input type="name" name="name" class="form-control" placeholder="Nama Lengkap" autocomplete="off" required>
                             </div>
                             <div class="wrap-input100 validate-input input-group" id="TanggalLahir-toggle">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
@@ -35,19 +35,19 @@
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-phone text-muted" aria-hidden="true"></i>
                                 </a>
-                                <input type= "number" name="nomorhandphone" class="form-control" value="{{ old('nomorhandphone') }}" placeholder="No Telepon" required>
+                                <input type= "number" name="nomorhandphone" class="form-control" value="{{ old('nomorhandphone') }}" placeholder="No Telepon" autocomplete="off" required>
                             </div>
                              <div class="wrap-input100 validate-input input-group" id="Email-toggle">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                 </a>
-                                <input type= "email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email" required>
+                                <input type= "email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email" autocomplete="off" required>
                             </div>
                             <div class="wrap-input100 validate-input input-group" id="Username-toggle">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-account text-muted" aria-hidden="true"></i>
                                 </a>
-                                <input type= "username" name="username" class="form-control" value="{{ old('username') }}" placeholder="Username" required>
+                                <input type= "username" name="username" class="form-control" value="{{ old('username') }}" placeholder="Username" autocomplete="off" required>
                             </div>
                             <div class="wrap-input100 validate-input input-group" id="Password-toggle">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">

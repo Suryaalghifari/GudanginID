@@ -16,6 +16,8 @@
    <link href="{{url('/assets/css/transparent-style.css')}}" rel="stylesheet">
    <link href="{{url('/assets/css/skin-modes.css')}}" rel="stylesheet" />
 
+   {!!htmlScriptTagJsApi()!!}
+
    <!--- FONT-ICONS CSS -->
     <link href="{{url('/assets/css/icons.css')}}" rel="stylesheet" />
 
@@ -81,7 +83,7 @@
         @if (session('status') === 'success')
         <script>
             Swal.fire({
-                title: "Registrasi Berhasil!",
+                title: "Registrasi  Berhasil!",
                 text: '{{ session("message", "Selamat Datang.") }}',
                 icon: "success", 
                 confirmButtonText: "OK",

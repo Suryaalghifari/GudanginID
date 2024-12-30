@@ -9,9 +9,10 @@
          <div class="text-center">
             <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">GudanginID<span class="text-gray">| Reset Password</span></h4>
         </div>
-        <form action="{{ route('password.reset') }}" method="POST">
+         <form action="{{ route('password.update') }}" method="POST">
 
             @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
              <div class="panel panel-primary">
                 <div class="panel-body tabs-menu-body p-0 pt-5">
                     <div class="tab-content">

@@ -15,24 +15,28 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'username' =>'required|string',
-            'password' => 'required',
+        // Validasi input termasuk reCAPTCHA
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+            'g-recaptcha-response' => 'required|recaptcha', // Validator reCAPTCHA
         ]);
 
-         if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        $credentials = $request->only('username', 'password');
 
-        // Kirim flash message untuk login berhasil
-        return redirect()->intended('/dashboard')->with([
-            'status' => 'success',
-            'message' => 'Anda berhasil login. Selamat datang kembali!'
-        ]);
-    }
-        return back()->with([
-        'status' => 'error',
-        'message' => 'Username atau password salah.'
-    ])->onlyInput('Username');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            // Kirim flash message untuk login berhasil
+            return redirect()->intended('/dashboard')->with([
+                'status' => 'success',
+                'message' => 'Anda berhasil login. Selamat datang kembali!'
+            ]);
+        }
+
+        return back()->withErrors([
+            'message' => 'Username atau password salah.'
+        ])->onlyInput('username');
     }
 
     public function logout(Request $request)
