@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class ResetPasswordController extends Controller
 {
@@ -27,10 +28,17 @@ class ResetPasswordController extends Controller
                 $user->forceFill([
                     'password' => Hash::make($password),
                 ])->save();
+
+                
+                DB::table('password_resets')
+                    ->where('email', $user->email)
+                    ->update([
+                        'created_at' => now()
+                    ]);
             }
         );
 
-       if ($status === Password::PASSWORD_RESET) {
+        if ($status === Password::PASSWORD_RESET) {
             return redirect()->route('login')->with([
                 'status' => 'success',
                 'message' => 'Password Anda berhasil direset. Silakan login dengan password baru.',
