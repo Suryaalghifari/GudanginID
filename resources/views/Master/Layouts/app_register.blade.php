@@ -104,7 +104,7 @@
         <script>
             Swal.fire({
                 title: "Input Tidak Valid!",
-                text: '{{ $errors->first() }}', // Tampilkan pesan error pertama
+                text: '{{ $errors->first() }}',
                 icon: "error", 
                 confirmButtonText: "OK",
             });

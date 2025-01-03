@@ -32,13 +32,13 @@
                                 <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
                             
-                            <!-- Bungkus Google reCAPTCHA -->
+                            
                            <div class="wrap-input100 validate-input input-group">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-security text-muted" aria-hidden="true"></i>
                                 </a>
                                 <div class="form-control" style="border: none; padding: 0;">
-                                    {!! htmlFormSnippet() !!}
+                                    {!! htmlFormSnippet(['lang' => 'en']) !!}
                                 </div>
                             </div>
                             @if($errors->has('g-recaptcha-response'))
@@ -71,5 +71,39 @@
 @endsection
 
 @section('scripts')
-<script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnLogin').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const form = document.querySelector('form');
+        const username = form.username.value.trim();
+        const password = form.password.value.trim();
+        const grecaptcharesponse = form['g-recaptcha-response'].value.trim();
+        // Validasi input kosong
+        if (!username) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Username Anda!',
+            });
+        } else if (!password) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Password Anda!',
+            });
+         } else if (!grecaptcharesponse) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'reCaptcha Belum Di Isi!',
+                text: 'Silakan Validasi reCaptcha!',
+            });
+        } else {
+            // Jika semua validasi terpenuhi, kirim form
+            form.submit();
+        }
+    });
+</script>
 @endsection

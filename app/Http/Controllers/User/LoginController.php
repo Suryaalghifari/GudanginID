@@ -10,16 +10,16 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login.login'); // Arahkan ke tampilan login
+        return view('login.login'); 
     }
 
     public function login(Request $request)
     {
-        // Validasi input termasuk reCAPTCHA
+       
         $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
-            'g-recaptcha-response' => 'required|recaptcha', // Validator reCAPTCHA
+            'g-recaptcha-response' => 'required|recaptcha', 
         ]);
 
         $credentials = $request->only('username', 'password');
@@ -27,7 +27,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Kirim flash message untuk login berhasil
+            
             return redirect()->intended('/dashboard')->with([
                 'status' => 'success',
                 'message' => 'Anda berhasil login. Selamat datang kembali!'

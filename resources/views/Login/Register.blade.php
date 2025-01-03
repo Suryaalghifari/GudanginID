@@ -87,3 +87,67 @@
     @endsection
 
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnLogin').addEventListener('click', function(event) {
+        event.preventDefault(); // Mencegah pengiriman form langsung
+
+        const form = document.querySelector('form');
+        const name = form.name.value.trim();
+        const tanggallahir = form.tanggallahir.value.trim();
+        const nomorhandphone = form.nomorhandphone.value.trim();
+        const email = form.email.value.trim();
+        const username = form.username.value.trim();
+        const password = form.password.value.trim();
+        const password_confirmation = form.password_confirmation.value.trim();
+
+        // Validasi input kosong
+        if (!name) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Nama Lengkap Anda!',
+            });
+        } else if (!tanggallahir) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Tanggal Lahir Anda!',
+            });
+        } else if (!nomorhandphone) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Nomor Telepon Anda!',
+            });
+        } else if (!email) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Email Anda!',
+            });
+        } else if (!username) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Username Anda!',
+            });
+        } else if (!password) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Kolom Kosong!',
+                text: 'Silakan isi Password Anda!',
+            });
+        } else if (password !== password_confirmation) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Password Tidak Sama!',
+                text: 'Konfirmasi Password harus sama dengan Password!',
+            });
+        } else {
+            // Jika semua validasi terpenuhi, kirim form
+            form.submit();
+        }
+    });
+</script>
+@endsection

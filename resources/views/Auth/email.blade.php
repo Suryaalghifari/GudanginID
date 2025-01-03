@@ -20,7 +20,7 @@
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-email text-muted ms-1" aria-hidden="true"></i>
                                 </a>
-                                <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Enter Your Email" autocomplete="off"required>
                             </div>
                             <div class="container-login100-form-btn">
                                 <button type="button" class="login100-form-btn btn btn-primary d-none" id="btnLoader" type="button" disabled="">

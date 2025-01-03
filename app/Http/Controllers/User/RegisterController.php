@@ -32,9 +32,9 @@ class RegisterController extends Controller
         ], [
             'tanggallahir.required' => 'Tanggal lahir wajib diisi.',
             'tanggallahir.date' => 'Tanggal lahir harus berupa tanggal yang valid.',
-            'email.unique' => 'Email ini sudah terdaftar.',
-            'username.unique' => 'Username ini sudah digunakan.',
-            'password.required' => 'Password minimal 8 digit.'
+            'email.unique' => 'Email Ini Sudah Terdaftar.',
+            'username.unique' => 'Username Ini Sudah Digunakan.',
+            'password.min' => 'Password Minimal 8 Karakter.',
         ]);
 
         if ($validator->fails()) {
