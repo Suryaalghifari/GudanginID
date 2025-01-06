@@ -5,6 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\WebModel
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|WebModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|WebModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|WebModel query()
+ * @mixin \Eloquent
+ */
 class WebModel extends Model
 {
     use HasFactory;

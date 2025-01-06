@@ -12,22 +12,19 @@ use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
-    // Tampilkan form register
     public function showRegisterForm()
     {
         return view('login.register');
     }
 
-    // Proses registrasi user baru
     public function register(Request $request)
     {
-        // Validasi input
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'tanggallahir' => 'required|date',
             'nomorhandphone' => 'required|numeric|digits_between:10,15',
-            'email' => 'required|email|unique:users,email',
-            'username' => 'required|string|max:255|unique:users,username',
+            'email' => 'required|email|unique:tbl_users,email',
+            'username' => 'required|string|max:255|unique:tbl_users,username',
             'password' => 'required|min:8|confirmed',
         ], [
             'tanggallahir.required' => 'Tanggal lahir wajib diisi.',

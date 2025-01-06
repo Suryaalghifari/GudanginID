@@ -1,6 +1,6 @@
-@extends('Master.layouts.app_login')
+@extends('Master.layouts.app_register')
 
-@section('title', 'Login')
+@section('title', 'Register')
 
 @section('content')
 

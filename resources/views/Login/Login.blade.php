@@ -71,7 +71,7 @@
 @endsection
 
 @section('scripts')
-<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.getElementById('btnLogin').addEventListener('click', function(event) {

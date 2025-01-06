@@ -30,14 +30,11 @@ class ResetPasswordController extends Controller
                 ])->save();
 
                 
-                DB::table('password_resets')
-                    ->where('email', $user->email)
-                    ->update([
-                        'created_at' => now()
-                    ]);
+                 DB::table('tbl_passwordresets')
+                ->where('email', $user->email)
+                ->delete();
             }
         );
-
         if ($status === Password::PASSWORD_RESET) {
             return redirect()->route('login')->with([
                 'status' => 'success',
