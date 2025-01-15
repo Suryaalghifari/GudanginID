@@ -32,6 +32,7 @@ class RegisterController extends Controller
             'email.unique' => 'Email Ini Sudah Terdaftar.',
             'username.unique' => 'Username Ini Sudah Digunakan.',
             'password.min' => 'Password Minimal 8 Karakter.',
+            'nomorhandphone.digits_between' => 'Nomor Handphone Minimal 10 Angka'
         ]);
 
         if ($validator->fails()) {

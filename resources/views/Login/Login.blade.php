@@ -10,7 +10,7 @@
                 <img src="{{url('/assets/default/web/LogoEdit.png')}}" height="75px" class="" alt="logo">
          </div>
          <div class="text-center">
-            <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">GudanginID<span class="text-gray">| LOGIN</span></h4>
+            <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">FitriHijab<span class="text-gray">| LOGIN</span></h4>
         </div>
         <form action="{{ route('login') }}" method="POST">
 
@@ -81,7 +81,6 @@
         const username = form.username.value.trim();
         const password = form.password.value.trim();
         const grecaptcharesponse = form['g-recaptcha-response'].value.trim();
-        // Validasi input kosong
         if (!username) {
             Swal.fire({
                 icon: 'warning',
@@ -101,7 +100,6 @@
                 text: 'Silakan Validasi reCaptcha!',
             });
         } else {
-            // Jika semua validasi terpenuhi, kirim form
             form.submit();
         }
     });

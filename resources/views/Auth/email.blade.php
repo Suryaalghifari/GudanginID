@@ -7,7 +7,7 @@
                 <img src="{{url('/assets/default/web/LogoEdit.png')}}" height="75px" class="" alt="logo">
          </div>
          <div class="text-center">
-            <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">GudanginID<span class="text-gray">| Reset Password</span></h4>
+            <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">FitriHijab<span class="text-gray">| Reset Password</span></h4>
         </div>
         <form action="{{ route('password.email') }}" method="POST">
 
@@ -27,7 +27,7 @@
                                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
                                     Loading...
                                 </button>
-                                <button type="submit" class="login100-form-btn btn btn-primary" id="btnLogin">Submit</button>
+                                <button type="submit" class="login100-form-btn btn btn-primary" id="btnSubmit">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -39,4 +39,25 @@
     @endsection
 
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnSubmit').addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        const form = document.querySelector('form');
+        const email = form.email.value.trim();
+
+        if(!email) {
+            Swal.fire({
+                icon : 'warning',
+                title : 'Kolom Kosong',
+                text : ' Email Harus Diisi!'
+            });
+        }else{
+            form.submit();
+        
+        }
+    });
+</script>
+@endsection
 

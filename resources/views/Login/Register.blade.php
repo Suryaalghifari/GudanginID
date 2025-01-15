@@ -10,7 +10,7 @@
                 <img src="{{url('/assets/default/web/LogoEdit.png')}}" height="75px" class="" alt="logo">
          </div>
          <div class="text-center">
-            <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">GudanginID<span class="text-gray">| REGISTER</span></h4>
+            <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">FitriHijab<span class="text-gray">| REGISTER</span></h4>
         </div>
         <form action="{{ route('register') }}" method="POST">
 
